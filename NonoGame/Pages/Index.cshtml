@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Gra";
+}
+<div>
+	<div class="d-flex m-auto justify-content-center mb-3" style="padding: 20px;">
+		<a class="btn btn-dark m-1 fw-bold" onclick="location.reload();">Losuj poziom</a>
+		<a id="start" class="btn btn-dark m-1 fw-bold" onclick=";return false;">Start</a>
+	</div>
+		
+	<div id="center" style="text-align: center;">
+		<div id="win" class="justify-content-center">
+			<p class="label fs-5">Wygrana!</p>
+		</div>
+
+		<div id="board">
+			<div id="top"></div>
+			<div id="first" class="float-start"></div>
+			<div id="second" class="overflow-hidden"></div>
+		</div>
+
+		<div id="clock" class="justify-content-center">
+			<p class="label fs-4"><span id="time"></span></p>
+		</div>
+	</div>
+</div>
+
+
+@section Scripts {
+	<script>
+		var yourJavaScriptArray = @Html.Raw(Json.Serialize(Model.Nonogram.Data));
+		var size = @Model.Nonogram.Size;
+		var array = Array(size).fill().map(() => Array(size).fill(0));
+		
+		var counter = 0;
+		for (var i = 0; i < size; i++) {
+			for (var j = 0; j < size; j++) {
+                array[i][j] = yourJavaScriptArray[counter];
+                counter++;
+			}
+		}
+	</script>
+	
+	<script src="~/js/nonogram.js" asp-append-version="true"></script>
+}

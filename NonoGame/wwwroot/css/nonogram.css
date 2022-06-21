@@ -1,0 +1,105 @@
+﻿*,
+*::before,
+*::after {
+    box-sizing: unset;
+}
+
+#board {
+    display: inline-block;
+    overflow: hidden;
+    margin: 20px 10px 20px 10px;
+}
+
+#top {
+    margin-bottom: -3px;
+}
+
+#first {
+    margin-right: -2px;
+}
+
+#win {
+    font-size: 18px;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+
+#clock {
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 4px;
+    padding: 4px 10px 4px 10px;
+    width: auto;
+    color: #777;
+}
+
+table {
+    font-size: 16px;
+    border: 3px #777 solid;
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+    font-weight: bold;
+    color: #777;
+    background-color: white;
+}
+
+    table td {
+        padding: 3px;
+        width: 25px;
+        height: 25px;
+        border-bottom: 1px solid #777;
+        border-left: 1px solid #777;
+    }
+
+#tableHorizontal {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+    #tableHorizontal td {
+        border-top: none;
+        border-bottom: none;
+    }
+
+#tableVertical td {
+    border-left: none;
+    border-right: none;
+}
+
+td.blue {
+    background: url('/images/cross.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+td.black {
+    background-color: #444;
+}
+
+@media only screen and (max-width: 520px) {
+    table td {
+        padding: 2px;
+        width: 23px;
+        height: 23px;
+    }
+
+    table {
+        font-size: 15px;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
